@@ -3,31 +3,29 @@ import { StyleHomeTab } from "./styles";
 import { Segmented } from "antd";
 import { TagItem } from "./TabItem";
 import { SVG_HOME_COLLECT_TAB, SVG_HOME_FEATURE_TAB, SVG_HOME_HISTORY_TAB } from "../../component/svg";
+import { TabType } from "../../../types/photo";
 
 interface Props {
   selectVal?: string
-  className?: string
-  style?: React.CSSProperties
   onClickTag: (value: string) => void
-  children?: React.ReactNode
 }
 
-export const HomeTab = memo(({ selectVal, className, style, onClickTag, children }: Props) => {
+export const HomeTab = memo(({ selectVal, onClickTag }: Props) => {
 
   const tabList = useMemo(() => [
     {
       label: 'Feature',
-      value: 'Feature',
+      value: TabType.feature,
       icon: SVG_HOME_FEATURE_TAB
     },
     {
       label: 'Collect',
-      value: 'Collect',
+      value: TabType.collect,
       icon: SVG_HOME_COLLECT_TAB
     },
     {
       label: 'History',
-      value: 'History',
+      value: TabType.history,
       icon: SVG_HOME_HISTORY_TAB
     }
   ], [])

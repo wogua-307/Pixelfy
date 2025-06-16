@@ -4,9 +4,9 @@ export const StyledApp = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-bottom: 30px;
-  
-  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 
   .source-info {
     position: fixed;
@@ -23,12 +23,6 @@ export const StyledApp = styled.div`
     a {
       margin-left: 4px;
       color: #19191A;
-    }
-  }
-
-  svg {
-    path {
-      fill: antiquewhite;
     }
   }
 `

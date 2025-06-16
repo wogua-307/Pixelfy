@@ -16,7 +16,8 @@ const figmaPluginPost = (postInfo: {type: string, message: any}) => {
  */
 figma.ui.onmessage = async (msg) => {
   try {
-    const type = msg.types
+
+    const type = msg.type
     switch (type) {
       case PLUGIN_WEB_POST_KEY.webFrameInfo: {
         onHandleSelectionChange()

@@ -63,17 +63,18 @@ export const StyledPhotoCard = styled.div<{paddingtop: number, bgcolor: string}>
   .actions {
     position: absolute;
     right: -50%;
-    top: 4px;
+    top: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    &:not(.is-collect) {
+    transition: all ease-in-out .25s;
+    /* &:not(.is-collect) {
       transition: all ease-in-out .25s;
-    }
-
+    } */
+/* 
     &.is-collect {
       right: 8px;
-    }
+    } */
   }
 
   &:hover {

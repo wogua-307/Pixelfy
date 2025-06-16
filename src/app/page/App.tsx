@@ -1,17 +1,20 @@
-import React, { useCallback, useEffect, useMemo } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { StyledApp } from './styles'
 import { StyledGlobal } from '../../global-style'
 import { HomeTab } from './HomeTab'
-import { MaterialList } from './MaterialList'
 import { ScrollTopButton } from '../component/ScrollTopButton'
 import { PLUGIN_POST_KEY, PLUGIN_WEB_POST_KEY } from '../@constant/postKeys'
 import { figmaWebToPluginPost } from './utils'
 import { useAppDispatch } from '../store'
 import { updateCollectList } from '../store/reducers/collect'
-import { SVG_HOME_COLLECT_TAB, SVG_HOME_FEATURE_TAB, SVG_HOME_HISTORY_TAB } from '../component/svg'
+import { TabType } from '../../types/photo'
+import FeaturePage from './Feature'
+import CollectPage from './Collect'
+import HistoryPage from './History'
 
 const App = () => {
   const dispatch = useAppDispatch()
+  const [tab, setTab] = useState<TabType>(TabType.feature)
   
   const onHandleFromPlugin = useCallback(({ type, message }: {type: string, message: any}) => {
     switch (type) {
@@ -29,8 +32,8 @@ const App = () => {
     }
   }, [])
 
-  const handleTabClick = (key: string) => {
-    console.log('handleTabClick', key)
+  const handleTabClick = (key: TabType) => {
+    setTab(key)
   }
 
   useEffect(() => {
@@ -47,20 +50,25 @@ const App = () => {
   return (
     <StyledApp>
       <HomeTab 
-        selectVal={'Feature'} 
+        selectVal={tab} 
         onClickTag={handleTabClick}
       />
       <ScrollTopButton onClickScrollTop={() => {
         console.log('scrollTop')
       }}/>
-      <MaterialList />
-      <div
-        className='source-info'
-      >
+      {
+        tab === TabType.feature && <FeaturePage />
+      }
+      {
+        tab === TabType.collect && <CollectPage />
+      }
+      {
+        tab === TabType.history && <HistoryPage />
+      }
+      <div className='source-info'>
         Photos provided by 
         <a href="https://www.pexels.com">Pexels</a>
       </div>
-      {/* <PluginButton type="highlight" label="Apply" onClick={onApply} /> */}
       <StyledGlobal />
     </StyledApp>
   )

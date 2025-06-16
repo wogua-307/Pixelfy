@@ -21,6 +21,16 @@ interface PhotoItem {
   alt: string // 要在 alt 属性中使用的照片的文本描述
 }
 
+enum TabType {
+  'feature' = 'feature',
+  'history' = 'history',
+  'collect' = 'collect'
+}
+
 export type {
   PhotoItem
+}
+
+export {
+  TabType
 }

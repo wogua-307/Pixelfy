@@ -1,8 +1,12 @@
 import React from "react";
+import { useAppSelector } from "../../store";
+import { getCollectList } from "../../store/reducers/collect";
+import { MaterialList } from "../MaterialList";
 
 const CollectPage = () => {
+  const collectList = useAppSelector(getCollectList)
   return (
-    <div>CollectPage</div>
+    <MaterialList photos={collectList} />
   )
 }
 

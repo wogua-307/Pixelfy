@@ -1,8 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { PhotoItem } from "../../../types/photo";
+import { fetchPexelsCurated } from "../../service";
+import { MaterialList } from "../MaterialList";
 
 const HistoryPage = () => {
+  const [photos, setPhotos] = useState<PhotoItem[]>([])
+  useEffect(() => {
+    const fetchPhotos = async () => {
+      const {photos} = await fetchPexelsCurated()
+      setPhotos(photos)
+    }
+    fetchPhotos()
+  }, [])
+
   return (
-    <div>HistoryPage</div>
+    <MaterialList photos={photos} />
   )
 }
 
