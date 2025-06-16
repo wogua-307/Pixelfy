@@ -1,0 +1,23 @@
+{
+  "name": "Pixelfy",
+  "id": "1514882712120231329",
+  "api": "1.0.0",
+  "capabilities": [],
+  "enableProposedApi": false,
+  "documentAccess": "dynamic-page",
+  "editorType": [
+    "figma",
+    "figjam"
+  ],
+  "main": "dist/code.js",
+  "ui": "dist/ui.html",
+  "networkAccess": {
+    "allowedDomains": [
+      "*"
+    ],
+    "devAllowedDomains": [
+      "*"
+    ],
+    "reasoning": "The plugin needs to load arbitrary websites, so we can't block/allow any specific ones up front."
+  }
+}
