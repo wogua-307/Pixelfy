@@ -1,10 +1,10 @@
-import React, { memo, useCallback, useMemo } from "react";
+import React, { memo, useCallback, useMemo } from "react"
 import cx from 'classnames'
-import { StyledPhotoCard } from "./styles";
-import { PhotoItem } from "../../../../types/photo";
-import { SVG_COLLECT } from "../../../component/svg";
-import { SVGBox } from "../../../component/SVGBox";
-import { useCollectHooks } from "../../Hooks/collectHook";
+import { StyledPhotoCard } from "./styles"
+import { PhotoItem } from "../../../../../types/photo"
+import { SVG_COLLECT } from "../../../../component/svg"
+import { SVGBox } from "../../../../component/SVGBox"
+import { useCollectHooks } from "../../../../Hooks/collectHook"
 
 interface Props {
   item: PhotoItem

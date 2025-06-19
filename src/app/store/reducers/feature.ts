@@ -1,33 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { PhotoItem } from '../../../types/photo'
 export interface FeatureState {
-  photo: {
-    page: number
-    total: number
-    photos: PhotoItem[]
-    isLoading: boolean
-  },
-  video: {
-    page: number
-    total: number
-    photos: PhotoItem[]
-    isLoading: boolean
-  }
+  page: number
+  total: number
+  photos: PhotoItem[]
+  isLoading: boolean
 }
 
 const featureInitialState: FeatureState = {
-  photo: {
-    page: 1,
-    total: 0,
-    photos: [],
-    isLoading: false
-  },
-  video: {
-    page: 1,
-    total: 0,
-    photos: [],
-    isLoading: false
-  }
+  page: 1,
+  total: 0,
+  photos: [],
+  isLoading: false
 }
 
 const featureSlice = createSlice({
@@ -35,16 +19,19 @@ const featureSlice = createSlice({
   initialState: featureInitialState,
   reducers: {
     updateFeatureState: (state, { payload }) => {
-      return { ...state, ...payload }
-    },
-    updateFeaturePhotoState: (state, { payload }) => {
-      state.photo = { ...state.photo, ...payload }
-    },
-    updateFeatureVideoState: (state, { payload }) => {
-      state.video = { ...state.video, ...payload }
+      console.log('updateFeatureState', payload, { ...state, ...payload })
+      return { ...state, ...payload, photos: payload.photos ? [...state.photos, ...payload.photos] : state.photos }
     }
+  },
+  selectors: {
+    getFeatureState: (state) => state,
+    getFeaturePage: (state) => state.page,
+    getFeaturePhotos: (state) => state.photos,
+    getFeatureTotal: (state) => state.total,
+    getFeatureIsLoading: (state) => state.isLoading
   }
 })
 
-export const { updateFeatureState, updateFeaturePhotoState, updateFeatureVideoState } = featureSlice.actions
+export const { updateFeatureState } = featureSlice.actions
+export const { getFeatureState, getFeaturePage, getFeaturePhotos, getFeatureTotal, getFeatureIsLoading } = featureSlice.selectors
 export default featureSlice.reducer

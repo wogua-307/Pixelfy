@@ -1,16 +1,16 @@
-import React from "react"
+import React, { forwardRef } from "react"
 import { StyledMaterialList } from "./styles"
 import Masonry from "react-masonry-css"
 import { PhotoCard } from "./PhotoCard"
-import { PhotoItem } from "../../../types/photo"
-import { SVG_EMPTY_DRINK } from "../../component/svg"
+import { PhotoItem } from "../../../../types/photo"
+import { SVG_EMPTY_DRINK } from "../../../component/svg"
 
 interface Props {
   photos: PhotoItem[]
 }
-export const MaterialList = ({ photos }: Props) => {
+export const MaterialList = forwardRef<HTMLDivElement, Props>(({ photos }, ref) => {
   return (
-    <StyledMaterialList>
+    <StyledMaterialList ref={ref}>
       {
         photos.length 
         ? <Masonry
@@ -30,4 +30,4 @@ export const MaterialList = ({ photos }: Props) => {
       
     </StyledMaterialList>
   )
-}
+})

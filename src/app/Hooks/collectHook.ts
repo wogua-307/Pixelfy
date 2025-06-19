@@ -1,8 +1,8 @@
-import { PhotoItem } from "../../../types/photo"
-import { figmaWebToPluginPost } from "../utils"
-import { PLUGIN_WEB_POST_KEY } from "../../@constant/postKeys"
-import { useAppDispatch, useAppSelector } from "../../store"
-import { getCollectList, updateCollectList } from "../../store/reducers/collect"
+import { PhotoItem } from "../../types/photo"
+import { PLUGIN_WEB_POST_KEY } from "../@constant/postKeys"
+import { figmaWebToPluginPost } from "../page/utils"
+import { useAppDispatch, useAppSelector } from "../store"
+import { getCollectList, updateCollectList } from "../store/reducers/collect"
 
 const useCollectHooks = () => {
   const dispatch = useAppDispatch()

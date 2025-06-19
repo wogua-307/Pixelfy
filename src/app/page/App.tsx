@@ -1,8 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import { StyledApp } from './styles'
 import { StyledGlobal } from '../../global-style'
-import { HomeTab } from './HomeTab'
-import { ScrollTopButton } from '../component/ScrollTopButton'
 import { PLUGIN_POST_KEY, PLUGIN_WEB_POST_KEY } from '../@constant/postKeys'
 import { figmaWebToPluginPost } from './utils'
 import { useAppDispatch } from '../store'
@@ -11,6 +9,7 @@ import { TabType } from '../../types/photo'
 import FeaturePage from './Feature'
 import CollectPage from './Collect'
 import HistoryPage from './History'
+import { HomeTab } from './container/HomeTab'
 
 const App = () => {
   const dispatch = useAppDispatch()
@@ -53,9 +52,6 @@ const App = () => {
         selectVal={tab} 
         onClickTag={handleTabClick}
       />
-      <ScrollTopButton onClickScrollTop={() => {
-        console.log('scrollTop')
-      }}/>
       {
         tab === TabType.feature && <FeaturePage />
       }

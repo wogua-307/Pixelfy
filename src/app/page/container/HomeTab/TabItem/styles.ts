@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { ColorTheme } from '../../../@constant/theme'
+import { ColorTheme } from '../../../../@constant/theme'
 
 export const StyleTagItem = styled.div`
   padding: 0 8px;

@@ -2,8 +2,8 @@ import React, { memo, useMemo } from "react";
 import { StyleHomeTab } from "./styles";
 import { Segmented } from "antd";
 import { TagItem } from "./TabItem";
-import { SVG_HOME_COLLECT_TAB, SVG_HOME_FEATURE_TAB, SVG_HOME_HISTORY_TAB } from "../../component/svg";
-import { TabType } from "../../../types/photo";
+import { TabType } from "../../../../types/photo";
+import { SVG_HOME_COLLECT_TAB, SVG_HOME_FEATURE_TAB, SVG_HOME_HISTORY_TAB } from "../../../component/svg";
 
 interface Props {
   selectVal?: string

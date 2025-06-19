@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { PhotoItem } from "../../../types/photo";
 import { fetchPexelsCurated } from "../../service";
-import { MaterialList } from "../MaterialList";
+import { MaterialList } from "../container/MaterialList";
 
 const HistoryPage = () => {
   const [photos, setPhotos] = useState<PhotoItem[]>([])

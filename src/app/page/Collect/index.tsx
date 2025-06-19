@@ -1,7 +1,7 @@
 import React from "react";
 import { useAppSelector } from "../../store";
 import { getCollectList } from "../../store/reducers/collect";
-import { MaterialList } from "../MaterialList";
+import { MaterialList } from "../container/MaterialList";
 
 const CollectPage = () => {
   const collectList = useAppSelector(getCollectList)
